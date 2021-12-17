@@ -52,9 +52,10 @@ function reset() { // when the score of one of the players reaches 2, display th
  if(scorePlayer == 2 || scoreCPU == 2){
     document.getElementById("reset").style.display = "inline";
      
-    document.querySelectorAll('.container div').forEach(div =>
+    document.querySelectorAll('.container div').forEach( div =>
       {
-        div.removeAttribute("onclick");
+        // div.removeAttribute("onclick");
+        div.classList.add('noclick');
       })
     
  } 
@@ -66,10 +67,13 @@ function restart() { // this function reset the scores, remove the resultat and 
     document.getElementById("reset").style.display = "none";
     displayScore();
     document.getElementById("resultat").style.display = "none";
-    document.querySelectorAll('.container div').forEach(div =>
+    document.querySelectorAll('.container div').forEach( div =>
       {
-        div.setAttribute("onclick", "restart()");
+        div.classList.remove('noclick');
       })
+      
+     
+        
 
 }
 
@@ -106,5 +110,6 @@ let ciseau = function () {
   ).innerHTML = `Vous avez choisi ciseau et votre adversaire à choisit ${signCPU}`;
   displayScore();
   reset();
+  
   
 };

@@ -14,5 +14,8 @@ body {
     display: none;
 }
 
+.noclick {
+    pointer-events: none;
+}
 
 
